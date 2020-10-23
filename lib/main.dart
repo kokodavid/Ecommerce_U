@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'constants.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -9,8 +11,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-
+          scaffoldBackgroundColor: Colors.white,
+        fontFamily: 'Muli',
         primarySwatch: Colors.blue,
+        textTheme: TextTheme(
+          bodyText1: TextStyle(color: kTextColor),
+          bodyText2: TextStyle(color: kTextColor),
+
+        )
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );

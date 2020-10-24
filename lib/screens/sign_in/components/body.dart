@@ -49,7 +49,15 @@ class _SignFormState extends State<SignForm> {
               labelText: "Email",
               hintText: "Input your Email",
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: SvgPicture.asset(""),
+              suffixIcon: Padding(
+                padding:  EdgeInsets.fromLTRB(
+                    0,
+                getProportionateScreenWidth(20),
+                getProportionateScreenWidth(20),
+                getProportionateScreenWidth(20),
+                ),
+                child: SvgPicture.asset("assets/icons/Mail.svg"),
+              ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(28),
                 borderSide: BorderSide(color: kTextColor),

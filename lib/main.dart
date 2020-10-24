@@ -16,7 +16,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           scaffoldBackgroundColor: Colors.white,
         fontFamily: 'Muli',
-
+        appBarTheme: AppBarTheme(
+          color: Colors.white,
+          elevation: 0,
+          brightness: Brightness.light,
+          iconTheme: IconThemeData(color: Colors.black )
+        ),
         primarySwatch: Colors.blue,
         textTheme: TextTheme(
           bodyText1: TextStyle(color: kTextColor),

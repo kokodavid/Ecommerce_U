@@ -54,16 +54,6 @@ class _SignFormState extends State<SignForm> {
               suffixIcon: CustomSuffixIcon(
                 svgIcon: "assets/icons/Mail.svg",
               ),
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(28),
-                borderSide: BorderSide(color: kTextColor),
-                gapPadding: 10,
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(28),
-                borderSide: BorderSide(color: kTextColor),
-                gapPadding: 10,
-              )
             ),
           )
         ],

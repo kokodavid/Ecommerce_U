@@ -1,7 +1,7 @@
+import 'package:ecommerce/components/custom_surfix_icon.dart';
 import 'package:ecommerce/constants.dart';
 import 'package:ecommerce/size_config.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -45,18 +45,14 @@ class _SignFormState extends State<SignForm> {
       child: Column(
         children: [
           TextFormField(
-            decoration: InputDecoration(
+            keyboardType: TextInputType.emailAddress,
+            decoration:
+            InputDecoration(
               labelText: "Email",
               hintText: "Input your Email",
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: Padding(
-                padding:  EdgeInsets.fromLTRB(
-                    0,
-                getProportionateScreenWidth(20),
-                getProportionateScreenWidth(20),
-                getProportionateScreenWidth(20),
-                ),
-                child: SvgPicture.asset("assets/icons/Mail.svg"),
+              suffixIcon: CustomSuffixIcon(
+                svgIcon: "assets/icons/Mail.svg",
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(28),
@@ -75,4 +71,6 @@ class _SignFormState extends State<SignForm> {
     );
   }
 }
+
+
 

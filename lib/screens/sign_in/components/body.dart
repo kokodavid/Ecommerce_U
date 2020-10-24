@@ -1,5 +1,7 @@
+import 'package:ecommerce/constants.dart';
 import 'package:ecommerce/size_config.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -7,21 +9,24 @@ class Body extends StatelessWidget {
     return SafeArea(
       child: SizedBox(
         width: double.infinity,
-        child: Column(
-          children: [
-            Text("Welcome Back", style: TextStyle(
-              color: Colors.black ,
-              fontSize: getProportionateScreenWidth(28),
-              fontWeight: FontWeight.bold
-            ),
-            ),
-            Text(
-              "Sign in with youe email and password \nor continue with social media",
-              textAlign: TextAlign.center,
-            ),
-            SignForm(),
+        child: Padding(
+          padding:  EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+          child: Column(
+            children: [
+              Text("Welcome Back", style: TextStyle(
+                color: Colors.black ,
+                fontSize: getProportionateScreenWidth(28),
+                fontWeight: FontWeight.bold
+              ),
+              ),
+              Text(
+                "Sign in with your email and password \nor continue with social media",
+                textAlign: TextAlign.center,
+              ),
+              SignForm(),
 
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -40,7 +45,22 @@ class _SignFormState extends State<SignForm> {
       child: Column(
         children: [
           TextFormField(
-
+            decoration: InputDecoration(
+              labelText: "Email",
+              hintText: "Input your Email",
+              floatingLabelBehavior: FloatingLabelBehavior.always,
+              suffixIcon: SvgPicture.asset(""),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(28),
+                borderSide: BorderSide(color: kTextColor),
+                gapPadding: 10,
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(28),
+                borderSide: BorderSide(color: kTextColor),
+                gapPadding: 10,
+              )
+            ),
           )
         ],
       ),

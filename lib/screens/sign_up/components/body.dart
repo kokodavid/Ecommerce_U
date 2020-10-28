@@ -1,3 +1,4 @@
+import 'package:ecommerce/components/social_card.dart';
 import 'package:ecommerce/constants.dart';
 import 'package:ecommerce/screens/sign_up/components/sign_up_form.dart';
 import 'package:ecommerce/size_config.dart';
@@ -21,7 +22,25 @@ class Body extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             SizedBox(height: SizeConfig.screenHeight * 0.08,),
-            SignUpForm()
+            SignUpForm(),
+            SizedBox(height: SizeConfig.screenHeight * 0.08,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+               SocialCard(
+              icon: "assets/icons/google-icon.svg",
+              press: () {},
+             ),
+              SocialCard(
+              icon: "assets/icons/facebook-2.svg",
+              press: () {},
+             ),
+              SocialCard(
+              icon: "assets/icons/twitter.svg",
+              press: () {},
+            ),
+          ],
+            )
           ],
         ),
       ),

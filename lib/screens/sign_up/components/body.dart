@@ -40,7 +40,11 @@ class Body extends StatelessWidget {
               press: () {},
             ),
           ],
-            )
+            ),
+            SizedBox(height: getProportionateScreenWidth(20),),
+            Text(
+                "By continuing you confirm that you agree \nwith our Terms and Conditions",
+            textAlign: TextAlign.center,)
           ],
         ),
       ),

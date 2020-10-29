@@ -1,6 +1,7 @@
 import 'package:ecommerce/components/custom_surfix_icon.dart';
 import 'package:ecommerce/components/default_button.dart';
 import 'package:ecommerce/components/form_error.dart';
+import 'package:ecommerce/screens/complete_profile/complete_profile_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
@@ -48,10 +49,7 @@ class _SignUpFormState extends State<SignUpForm> {
           FormError(errors: errors),
           DefaultButton(text: "Continue",
             press: () {
-              if(_formKey.currentState.validate()){
-                _formKey.currentState.save();
-                //Go to complete profile
-              }
+                Navigator.pushNamed(context, CompleteProfileScreen.routeName);
             },)
         ],
       ),
@@ -95,6 +93,7 @@ class _SignUpFormState extends State<SignUpForm> {
   TextFormField buildConfirmPassFormField() {
     return TextFormField(
       obscureText: true,
+      onSaved: (newValue) => confirm_password = newValue,
       onChanged: (value) {
         if (value.isNotEmpty ){
           removeError(error: kPassNullError );
@@ -106,7 +105,7 @@ class _SignUpFormState extends State<SignUpForm> {
       },
       validator: (value){
         if (value.isEmpty ){
-          addError(error: kPassNullError );
+          // addError(error: kPassNullError );
           return "";
         }else if((password != value)){
           addError(error: kMatchNullError);

@@ -11,7 +11,7 @@ class Body extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            "OTP Verification",
+            "OTP Verificatin",
             style: TextStyle(
                 fontSize: getProportionateScreenHeight(28),
                 fontWeight: FontWeight.bold,

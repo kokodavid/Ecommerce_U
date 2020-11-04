@@ -1,28 +1,46 @@
+import 'package:ecommerce/components/default_button.dart';
 import 'package:ecommerce/constants.dart';
 import 'package:flutter/material.dart';
 
 import '../../../size_config.dart';
+import 'otp_form.dart';
 
 class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      child: Padding(
-        padding:  EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
-        child: Column(
-          children: [
-            Text(
-              "OTP Verificatin",
-              style: TextStyle(
-                  fontSize: getProportionateScreenHeight(28),
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black),
+    return SafeArea(
+      child: Container(
+        width: double.infinity,
+        child: Padding(
+          padding:
+              EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Text(
+                  "OTP Verification",
+                  style: TextStyle(
+                      fontSize: getProportionateScreenHeight(28),
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black),
+                ),
+                SizedBox(height: SizeConfig.screenHeight * 0.05),
+                Text("We Sent your code to 0769042076"),
+                buildTimer(),
+                SizedBox(height: SizeConfig.screenHeight * 0.15),
+                OtpForm(),
+                SizedBox(height: SizeConfig.screenHeight * 0.1),
+                GestureDetector(
+                  onTap: () {
+
+                  },
+                    child: Text(
+                  "Resend OTP code",
+                  style: TextStyle(decoration: TextDecoration.underline),
+                ))
+              ],
             ),
-            Text("We Sent your code to 0769042076"),
-            buildTimer(),
-            OtpForm()
-          ],
+          ),
         ),
       ),
     );
@@ -46,105 +64,5 @@ class Body extends StatelessWidget {
             onEnd: () {},
           )
         ]);
-  }
-}
-class OtpForm extends StatefulWidget {
-  @override
-  _OtpFormState createState() => _OtpFormState();
-}
-
-class _OtpFormState extends State<OtpForm> {
-  FocusNode pin2FocusNode;
-  FocusNode pin3FocusNode;
-  FocusNode pin4FocusNode;
-
-  @override
-  void initState() {
-    super.initState();
-    pin2FocusNode = FocusNode();
-    pin3FocusNode = FocusNode();
-    pin4FocusNode = FocusNode();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    pin2FocusNode.dispose();
-    pin3FocusNode.dispose();
-    pin4FocusNode.dispose();
-
-  }
-
-  void nextField({String value, FocusNode focusNode}) {
-    if(value.length == 1){
-      focusNode.requestFocus();
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Form(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            SizedBox(
-              width: getProportionateScreenWidth(60),
-              child: TextFormField(
-                autofocus: true,
-                  obscureText: true,
-                  keyboardType: TextInputType.number,
-                style: TextStyle(fontSize: 24),
-                textAlign: TextAlign.center,
-                decoration: otpInputDecoration,
-                onChanged: (value) {
-                  nextField(value: value,focusNode: pin2FocusNode);
-                },
-              ),
-            ),
-            SizedBox(
-              width: getProportionateScreenWidth(60),
-              child: TextFormField(
-                focusNode: pin2FocusNode,
-                obscureText: true,
-                keyboardType: TextInputType.number,
-                style: TextStyle(fontSize: 24),
-                textAlign: TextAlign.center,
-                decoration: otpInputDecoration,
-                onChanged: (value) {
-                  nextField(value: value, focusNode: pin3FocusNode);
-                },
-              ),
-            ),
-            SizedBox(
-              width: getProportionateScreenWidth(60),
-              child: TextFormField(
-                focusNode: pin3FocusNode,
-                obscureText: true,
-                keyboardType: TextInputType.number,
-                style: TextStyle(fontSize: 24),
-                textAlign: TextAlign.center,
-                decoration: otpInputDecoration,
-                onChanged: (value) {
-                  nextField(value: value,focusNode: pin4FocusNode);
-                },
-              ),
-            ),
-            SizedBox(
-              width: getProportionateScreenWidth(60),
-              child: TextFormField(
-                focusNode: pin4FocusNode,
-                obscureText: true,
-                keyboardType: TextInputType.number,
-                style: TextStyle(fontSize: 24),
-                textAlign: TextAlign.center,
-                decoration: otpInputDecoration,
-                onChanged: (value) {
-
-                },
-              ),
-            )
-          ],
-        ),
-    );
   }
 }

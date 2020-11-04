@@ -1,5 +1,6 @@
 import 'package:ecommerce/components/custom_surfix_icon.dart';
 import 'package:ecommerce/components/default_button.dart';
+import 'package:ecommerce/screens/Otp_Verification/otp_verification.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
@@ -50,7 +51,9 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
             SizedBox(height: getProportionateScreenHeight(20),),
             DefaultButton(
               text: "Continue",
-              press: (){},
+              press: (){
+                Navigator.pushNamed(context, OtpVerification.routeName);
+              },
             ),
 
 

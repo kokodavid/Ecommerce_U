@@ -2,6 +2,7 @@ import 'package:ecommerce/components/custom_surfix_icon.dart';
 import 'package:ecommerce/components/default_button.dart';
 import 'package:ecommerce/components/form_error.dart';
 import 'package:ecommerce/screens/forgot_password/forgort_password_screen.dart';
+import 'package:ecommerce/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
@@ -61,6 +62,7 @@ class _SignFormState extends State<SignForm> {
             press: () {
               if(_formKey.currentState.validate()){
                 _formKey.currentState.save();
+                Navigator.pushNamed(context, Home.routeName);
               }
             },
           )

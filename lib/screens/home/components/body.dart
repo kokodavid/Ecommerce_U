@@ -5,6 +5,7 @@ import 'package:ecommerce/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import 'categories.dart';
 import 'discount_banner.dart';
 import 'home_header.dart';
 
@@ -22,7 +23,11 @@ class Body extends StatelessWidget {
             SizedBox(
               height: getProportionateScreenWidth(30),
             ),
-            DiscountBanner()
+            DiscountBanner(),
+            SizedBox(
+              height: getProportionateScreenWidth(30),
+            ),
+            Categories()
           ],
         ),
       ),
